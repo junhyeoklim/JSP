@@ -3,26 +3,36 @@
 <%@ page import="dao.UserDAO" %>
 
 <%-- 회원정보 수정 기능 구현 --%>
+<%@ page import = "dao.*" %>
+<%
+	request.setCharacterEncoding("utf-8");
+%>
 <jsp:useBean id="user" class="dao.UserBean">
 		<jsp:setProperty name="user" property="*" />
 	</jsp:useBean>
-<%
-	request.setCharacterEncoding("utf-8");
 
-    String uid = request.getParameter("id");
+<% 
+String cps = request.getParameter("cps");    
+String cps2 = request.getParameter("cps2");
+	UserDAO dao = new UserDAO();    
     
-    UserDAO dao = new UserDAO();
-    if (dao.exists(uid) == false) {
-        out.print("회원 정보를 찾을 수 없습니다.");
-        return;
-    }
-    
-    if (dao.update(user) == true) {%>
+    if (cps == cps2) {
+    dao.update(user);
+    %>
     <script type="text/javascript">
 		alert('회원정보 수정 완료');
 		location.href = 'welcome2.jsp';
 	</script>
     <%    
     }
+   
+    else if (cps != cps2) {        
+        %>
+        <script type="text/javascript">
+    		alert('비밀번호가 일치하지 않습니다!');
+    		location.href = 'updateForm.jsp';
+    	</script>
+        <%    
+        }
     
 %>

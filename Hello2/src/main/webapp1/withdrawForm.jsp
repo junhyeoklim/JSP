@@ -1,12 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+    <%@ page import="java.sql.*" %>
+<%@ page import="java.util.*" %>
+<%@ page import="dao.*" %>
 <%
-    String uid = (String) session.getAttribute("id");
-    if (uid == null) {
-        response.sendRedirect("loginForm.jsp");
-        return;
-    }
+    String uid = (String)session.getAttribute("id");
+if (uid == null) {
+    response.sendRedirect("withdrawForm.jsp");
+    return;
+}
+    UserDAO dao = new UserDAO();
+	UserBean user = dao.getUser(uid);
 %>    
 <!DOCTYPE html>
 <html>
@@ -19,8 +23,12 @@
 	<table align=center>
 	<tr><td colspan=2 align=center height=40><b>회원탈퇴</b><td></tr>
 	<tr>
-		<td align=right>아이디&nbsp;</td>
-		<td><input type="text" name="id" placeholder="Email address" required></td>
+		<td align=right>아이디&nbsp;</td> 
+		<td><input type="text" name="id" value=<%=user.getId()%> readonly="readonly"></td>
+	</tr>
+	<tr>
+		<td align=right>비밀번호&nbsp;</td>
+		<td><input type="password" name="ps" placeholder="" required ></td>
 	</tr>
 	<tr>
 		<td colspan=2 align=center height=50>

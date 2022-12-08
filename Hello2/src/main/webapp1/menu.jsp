@@ -9,10 +9,9 @@
 
 </head>
 <body align=right>
-<form action="./loginForm.jsp" method="post">
 
 <a href="./welcome.jsp"><button type="button" class="top" >Home</button></a>
-<button type="submit" class="top" >로그인</button>
+<a href="./loginForm.jsp"><button type="submit" class="top" >로그인</button></a>
 <br>
 </form>
 

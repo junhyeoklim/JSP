@@ -51,8 +51,7 @@ function time_format(s) {
 <body align=right>
 
 
-<a href="./welcome2.jsp"><button type="button" class="top" >Home</button></a>
-<a href='updateForm.jsp'><button type="button" class="top">회원정보수정</button></a> 
+<a href="./welcome2.jsp"><button type="button" class="top" >Home</button></a> 
 <a href="./main.jsp"><button type="button" class="top" >게시판</button></a>
 <a href="./logout.jsp"><button type="button" class="top" >로그아웃</button></a>
 <span id="counter"> </span> 후 자동로그아웃 <input type="button" value="연장" onclick="counter_reset()">

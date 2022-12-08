@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 </head>
 <body>
-	<form action="login1.jsp" method="post">
+	<form action="./login1.jsp" method="post">
 	<link rel="stylesheet" href="./css/style.css">
 	<table align=center>
 	<tr><td colspan=2 align=center height=40><b>로그인</b><td></tr>

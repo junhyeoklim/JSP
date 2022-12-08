@@ -3,20 +3,35 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="dao.*" %>
+<% request.setCharacterEncoding("utf-8"); %>
+<jsp:useBean id="user" class="dao.UserBean">
+	<jsp:setProperty name="user" property="*" />
+</jsp:useBean>
 <%
-	request.setCharacterEncoding("utf-8");
+	
 	String id = request.getParameter("id");
 	UserDAO dao = new UserDAO();	
-
-if(dao.exists(id) == true)
-{
-	out.print("이미 사용중인 ID입니다.");	
-	return;
-}
-	else if (dao.exists(id) == false)
+	boolean check;
+	
+	if(dao.exists(id))
 	{
-		out.print("사용 가능한 ID입니다.");	
 		
+		%>
+		<script>
+		alert("이미 사용중인 아이디 입니다.");		
+		window.close();
+		</script>
+		<% 
+		
+	
 	}
-	 %>
-	 <a href="#" onclick="self.close()">닫기</a>
+	else
+	{
+		
+		%>
+			사용 가능한 아이디<br><a href="#" onclick="self.close()">닫기</a>
+			 
+		<%
+	}
+	%>
+	

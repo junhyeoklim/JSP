@@ -30,7 +30,7 @@ function counter_run() {
 	cnt--;
 	if(cnt < 0) {
 		clearInterval(tid);
-		self.location = "logout.jsp";
+		self.location = "seesionlogout.jsp";
 	}
 }
 function time_format(s) {
@@ -64,7 +64,8 @@ counter_init();
     ArrayList<FeedObj> feeds = (new FeedDAO()).getList();
     
     String str = "";       
-    str += "<a href='feedAddForm.jsp'><button>글쓰기</button></a> ";   
+    str += "<a href='feedAddForm.jsp'><button>글쓰기</button></a> ";
+    str += "<a href='updateForm.jsp'><button class='top'>회원정보 수정</button></a> ";
     str += "<a href='withdrawForm.jsp'><button>회원탈퇴</button></a> ";
     str += "<a href='logout.jsp'><button>로그아웃</button></a>";        
 	str += "<a href='welcome2.jsp'><button>메인페이지</button></a><br>";   

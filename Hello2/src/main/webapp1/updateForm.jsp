@@ -29,15 +29,15 @@
 </tr>
 <tr>
     <td align=right>패스워드&nbsp;</td>
-    <td><input type="password" name="ps" placeholder="비밀번호를 입력하시오."></td>
+    <td><input type="password" name="cps" placeholder="비밀번호를 입력하시오." required></td>
 </tr>
 <tr> 
     <td align=right>패스워드(확인)&nbsp;</td>
-    <td><input type="password" name="ps2" placeholder="비밀번호를 확인."></td>
+    <td><input type="password" name="cps2" placeholder="비밀번호를 확인." required></td>
 </tr>
 <tr>
     <td align=right>이름&nbsp;</td>
-    <td><input type="text" name="name" value=<%=user.getName()%>></td> 
+    <td><input type="text" name="name" value=<%=user.getName()%> required></td> 
 </tr> 
 <tr>
     <td colspan=2 align=center height=50>

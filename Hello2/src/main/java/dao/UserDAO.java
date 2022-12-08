@@ -53,6 +53,8 @@ public class UserDAO {
         }
         return result;
     }
+    
+    
 
     public boolean delete(String uid) throws NamingException, SQLException {
         Connection conn = null;

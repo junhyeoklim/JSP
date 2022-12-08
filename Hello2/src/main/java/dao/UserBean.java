@@ -2,7 +2,8 @@ package dao;
 
 public class UserBean {
 	private String id;
-	private String ps;	
+	private String ps;
+	private String ps2;
 	private String name;
 	private String ts;
 	
@@ -19,6 +20,12 @@ public class UserBean {
 	}
 	public void setPs(String ps) {
 		this.ps = ps;
+	}
+	public String getPs2() {
+		return ps2;
+	}
+	public void setPs2(String ps2) {
+		this.ps2 = ps2;
 	}
 	public String getName() {
 		return name;

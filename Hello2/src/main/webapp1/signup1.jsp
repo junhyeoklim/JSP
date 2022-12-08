@@ -9,7 +9,8 @@
 	</jsp:useBean>
 
 <% 
-
+String ps = request.getParameter("ps");    
+String ps2 = request.getParameter("ps2");
 	UserDAO dao = new UserDAO();
 
 if(dao.exists(user.getId()))
@@ -22,12 +23,23 @@ if(dao.exists(user.getId()))
 	<%
 	return;
 }
-if(dao.insert(user))
+if(ps == ps2)
 {	
+	dao.insert(user);
+	
 	%>
 	 <script type="text/javascript">
 		alert('회원가입 완료!');
 		location.href = 'main.jsp';
+	</script>
+<%
+}
+else if(ps != ps2)
+{		
+	%>
+	 <script type="text/javascript">
+		alert('비밀번호가 일치하지 않습니다!');
+		location.href = 'signupForm.jsp';
 	</script>
 <%
 }

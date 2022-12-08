@@ -14,9 +14,19 @@ function openIdChk(id){
 			alert("ID를 입력하세요!");
 			return;
 		}
-	url = "IdCheckForm.jsp?id"+id;
-    window.open(url,"confirm", "width=500, height=300");    
+	url = "IdCheckForm.jsp?id="+id;
+    window.open(url,"confirm", "width=500, height=300,left=500,top=300");    
 }
+
+function inputIdChk()
+{
+	var joinForm = document.joinForm;
+	var dbCheckId = document.joinForm.dbCheckId;
+	document.joinForm.inDuplication.value = "idUncheck";
+	dbCheckId.disabled = false;
+	dbCheckId.style.opacity = 1;
+	dbCheckId.style.cursor = "pointer";
+	}
 
 </script>
 		
@@ -30,8 +40,8 @@ function openIdChk(id){
 <tr>
     <td align=right>아이디&nbsp;</td>
     <td><input type="text" name="id" placeholder="Email address" required onkeydown = "inputIdChk()"/>     
-    	<input type="button" class="top" value="중복확인" onclick="openIdChk(this.form.id.value)">
-    	
+    	<input type="button" class="top" name="check" value="중복확인" onclick="openIdChk(this.form.id.value)">
+    	<input type="hidden" name = "idDuplication" value = "idUncheck">    	
     </td>
 </tr>
 <tr>
@@ -48,7 +58,7 @@ function openIdChk(id){
 </tr>
 <tr>
     <td colspan=2 align=center height=50>
-        <input type="submit" onclick="test()" class="top" value="회원가입하기"></button></a>    
+        <input type="submit" onclick="check_ok(this.form.check.value)" class="top" value="회원가입하기"> 
    		
     </td>
 </tr>
