@@ -24,7 +24,7 @@ function counter_run() {
 	cnt--;
 	if(cnt < 0) {
 		clearInterval(tid);
-		self.location = "logout.jsp";
+		self.location = "seesionlogout.jsp";
 	}
 }
 function time_format(s) {
